@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--===============================================================================================-->
+
+    <div class="header">
+        <h1 class="logo">MemeRing</h1>
+        <div class="header-right"></div>
+    </div>
+
+</head>
+
+<body onload="getPhotos()">
+
+    <div class="limiter">
+        <div class="container-homePage100">
+            <div>
+                <div id="headerContainer">
+                    <div class="row">
+                        <!-- <div class="col-6">
+                            <input class="search-input" placeholder="Search...">
+                        </div> -->
+
+                        <form class="input-group my-group" id="formToSearch" style="width: 550px; padding: 15px;">
+                            <input type="text" id="searchText" class="form-control" name="SearchInput.SearchText" placeholder="Search..." />
+                            <select id="customSelect" class="selectpicker col-3" data-live-search="true" title="Please, select method for search" style="display: block; padding: 5px; font-size: 14.2px;">
+                                <option value="in system">&#9745; In system</option>
+                                <option value="on page">&#9745; On page</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <div class="buttonForSearch"><a
+                                        class="btn btn-info my-group-button search-btn isDisabled" id="searchBtnId"><i
+                                            class="fa fa-search"></i></a></div>
+                            </span>
+                        </form>
+
+                        <div class="col-2" style="padding: 20px;">
+                            <button> <a href="javascript://" class="btn-primary searchClear">Reset Search</a></button>
+                        </div>
+
+                        <div class="col-6 text-right" style="position:absolute;right:0; padding: 15px;">
+                            <!-- <a href="javascript://" class="btn btn-primary add-image">Add Image</a> -->
+                            <p class="perpage">
+                                Memes Per Page:
+                                <a href="javascript://">4</a> |
+                                <a href="javascript://" class="active">8</a> |
+                                <a href="javascript://">12</a> |
+                                <a href="javascript://" class="infinite">Infinite Scrolling</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text usernameTitle2" style="padding: 20px; font-size: 25px; text-align: center"></div>
+                </div>
+
+                <div id="mainContainer">
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <nav>
+                            <ul id="pagination" class="pagination justify-content-end">
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="notification">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Problems...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="preview" aria-labelledby="exampleModalLong" aria-hidden="true">
+        <div class="modal-dialog modal-big" role="document">
+            <div class="modal-content" style="display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+            height: auto;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLong">Meme</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img class="img-fluid" src="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    </script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+    <script src="js/functions.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/authorization.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/docReady.js"></script>
+    <!--===============================================================================================-->
+
+</body>
+
+</html>
