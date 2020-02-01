@@ -1,3 +1,7 @@
+* linguist-vendored
+*.css linguist-vendored=false
+
+*.cs linguist-language=C#
 *.cs text diff=csharp
 *.msbuild text
 *.config text
@@ -11,8 +15,3 @@
 *.csproj text merge=union
 *.fsproj text merge=union
 *.sln text eol=crlf merge=union
-
-*.jpg binary
-*.png binary
-*.gif binary
-*.cs linguist-language=C#
