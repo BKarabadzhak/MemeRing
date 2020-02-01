@@ -2,28 +2,6 @@ $(document).ready(function () {
 
     var win = $(window);
 
-    win.scroll(function () {
-
-        if ($(document).height() - win.height() == win.scrollTop()) {
-            if (window.perPage == 'infinite') {
-                if (window.paginationMode === 'All') {
-
-                    const currentPage = getFilename(window.location.pathname);
-                    if (currentPage === 'HomePage.html') {
-                        getPhotos();
-                    }
-                    else if (currentPage === 'Cabinet.html') {
-                        getCurrentUserPhotos();
-                    }
-                }
-                else if (window.paginationMode === 'Description') {
-                    findByDescription(window.searchText, window.currentPage + 1);
-                }
-            }
-        }
-    });
-
-
     $('.add-image').click(function () {
         $("#Description").val('');
         $("#imageId").attr('src', '');
