@@ -34,10 +34,10 @@ You will need:
 5. Run .sln file and open Register.html
 
 ### Example
-Using the following example when accessing API on route http://localhost:5000/api/Photos/Description you will get as response a collection of pagination images by their description and total number of pages:
+Using the following example when accessing API on route http://localhost:5000/api/Photos/Description with HTTP method 'POST' you will get as response a collection of pagination images by their description and total number of pages:
 ```json
 {
-  "Description": "Some_description",
+  "Description": "Some_description_of_images",
   "PageSize": "8",
   "PageNumber": "1"
 }
