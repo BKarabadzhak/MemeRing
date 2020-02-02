@@ -1,7 +1,9 @@
 ## MemeRing
 This project represents web application for uploading memes. It includes the front-end part, made using technologies jQuery, JavaScript, HTML and CSS. Back-end part represents REST API, made using C#.
 
-Tests performed using technology xUnit.net.
+Integration tests performed using technology xUnit.net.
+
+Entity Framework (EF) Core is used to access and manipulate data in the database.
 
 ### Prerequisites
 You will need:
